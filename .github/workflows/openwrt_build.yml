@@ -62,7 +62,7 @@ jobs:
       run: |
         df -hT $GITHUB_WORKSPACE
         git clone $REPO_URL -b $REPO_BRANCH openwrt
-		git checkout $REPO_HEAD
+        git checkout $REPO_HEAD
         cd openwrt
         echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
         VERSION_INFO=$(git show -s --date=short --format="作者: %an<br/>时间: %cd<br/>内容: %s<br/>hash: %H")
@@ -71,11 +71,11 @@ jobs:
     - name: Compile Firmware(开始编译固件)
       id: compile
       run: |
-		wget https://github.com/csrbzhb/openwrt/releases/download/v21.02.7/mtk-wifi-mt79xx-20231229_v7672_external_AX3000_AX4200_AX5400_AX6000_AX7800.tar
-		tar -xf mtk-wifi-mt79xx-20231229_v7672_external_AX3000_AX4200_AX5400_AX6000_AX7800.tar
-		cp mtk-wifi-mt79xx/* $OPENWRT_PATH/ -rf
-		wget https://github.com/csrbzhb/openwrt/releases/download/v21.02.7/feeds.conf.default-21.02
-		cp feeds.conf.default-21.02 $OPENWRT_PATH/ -rf
+        wget https://github.com/csrbzhb/openwrt/releases/download/v21.02.7/mtk-wifi-mt79xx-20231229_v7672_external_AX3000_AX4200_AX5400_AX6000_AX7800.tar
+        tar -xf mtk-wifi-mt79xx-20231229_v7672_external_AX3000_AX4200_AX5400_AX6000_AX7800.tar
+        cp mtk-wifi-mt79xx/* $OPENWRT_PATH/ -rf
+        wget https://github.com/csrbzhb/openwrt/releases/download/v21.02.7/feeds.conf.default-21.02
+        cp feeds.conf.default-21.02 $OPENWRT_PATH/ -rf
         cd $OPENWRT_PATH
         echo -e "$(nproc) thread compile"
         autobuild/lede-build-sanity.sh
@@ -102,7 +102,7 @@ jobs:
         cp $OPENWRT_PATH/.config build.config
         mv -f $OPENWRT_PATH/bin/packages/*/*/*.ipk packages
         tar -zcf Packages.tar.gz packages
-		tar -jcf download.tar.bz2 $OPENWRT_PATH/dl
+        tar -jcf download.tar.bz2 $OPENWRT_PATH/dl
         rm -rf packages feeds.buildinfo version.buildinfo
         echo "FIRMWARE_PATH=$PWD" >> $GITHUB_ENV
 
