@@ -8,7 +8,7 @@ on:
 env:
   REPO_URL: https://github.com/csrbzhb/openwrt.git
   REPO_BRANCH: openwrt-21.02
-  REPO_HEAD: cbe73ea33d02
+  REPO_HEAD: cbe73ea33d027dbb4b2cf1eca947ae746119e7d2
   CLASH_KERNEL: amd64
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
