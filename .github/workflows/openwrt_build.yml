@@ -75,7 +75,7 @@ jobs:
         cp feeds.conf.default-21.02 $OPENWRT_PATH/ -rf
         cd $OPENWRT_PATH
         echo -e "$(nproc) thread compile"
-        ./autobuild/lede-build-sanity.sh
+        bash autobuild/lede-build-sanity.sh
         echo "status=success" >> $GITHUB_OUTPUT
         echo "DATE=$(date +"%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
         echo "FILE_DATE=$(date +"%Y.%m.%d")" >> $GITHUB_ENV
