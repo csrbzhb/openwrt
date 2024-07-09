@@ -72,7 +72,7 @@ jobs:
         tar -xf mtk-wifi-mt79xx-20231229_v7672_external_AX3000_AX4200_AX5400_AX6000_AX7800.tar
         cp mtk-wifi-mt79xx/* $OPENWRT_PATH/ -rf
         wget https://github.com/csrbzhb/openwrt/releases/download/v21.02.7/feeds.conf.default-21.02
-        cp feeds.conf.default-21.02 $OPENWRT_PATH/ -rf
+        cp feeds.conf.default-21.02 $OPENWRT_PATH/autobuild -rf
         cd $OPENWRT_PATH
         echo -e "$(nproc) thread compile"
         bash autobuild/mt7981-AX3000/lede-branch-build-sanity.sh
